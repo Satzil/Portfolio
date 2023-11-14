@@ -1,6 +1,20 @@
 
 # Projects
 
+
+# License Plate Detection using OpenCV, YOLOv5, and EasyOCR
+
+
+https://github.com/Satzil/Portfolio/assets/95362584/66102f05-ef40-44b0-be55-5e76ab112828
+
+
+This project integrates OpenCV, YOLOv5, and EasyOCR to develop an efficient license plate detection system. OpenCV provides foundational image processing, YOLOv5 enables real-time object detection, particularly focusing on license plates, and EasyOCR seamlessly extracts and recognizes license plate characters. 
+
+[View full project...](https://github.com/Satzil/License-Plate-Detection-)
+
+
+
+
 ## Utilizing Convolutional Neural Networks for Horses vs. Humans Classification
 
 [![OpenAI Logo](https://github.com/Satzil/horses_vs_humans/blob/main/images/horses_and_humas.png?raw=true)](https://satzil.github.io/horses_vs_humans/)
@@ -29,26 +43,9 @@ Text Sequence Generation using NLP is a model or system designed to generate coh
 
 [View full project...](https://satzil.github.io/Text-sequence-generator/)
 
-# Sales Insights Data Analysis with Power BI
-
-[
-![OpenAI Logo](https://d1muf25xaso8hp.cloudfront.net/https://f2fa1cdd9340fae53fcb49f577292458.cdn.bubble.io/f1694077513953x867578645805847400/sales%2520insight_page-0001.jpg?w=384&h=275&auto=true&dpr=1.25&fit=crop)
-](https://www.novypro.com/project/sales-insights-22)
 
 
-The Sales Insights Data Analysis project powered by Power BI is a comprehensive examination of sales data aimed at extracting actionable insights for business growth and strategic decision-making. By harnessing the capabilities of Power BI, this project transforms raw sales data into visually compelling reports and dashboards that offer valuable information to sales teams, managers, and stakeholders.
 
-[View full project...](https://www.novypro.com/project/sales-insights-22)
-
-# Glassdoor Jobs Data Analysis with Power BI
-
-[
-![OpenAI Logo](https://d1muf25xaso8hp.cloudfront.net/https://f2fa1cdd9340fae53fcb49f577292458.cdn.bubble.io/f1694084012556x196676380070444100/glassdoor%2520jobs%2520-%2520Power%2520BI_page-0001.jpg?w=384&h=275&auto=true&dpr=1.25&fit=crop)
-](https://www.novypro.com/project/glassdoor-jobs)
-
-The Glassdoor Jobs Data Analysis project with Power BI is an insightful exploration of job market dynamics, salary trends, and company reviews. Leveraging the power of Power BI, this project transforms raw Glassdoor data into interactive and visually appealing reports and dashboards. Job seekers, employers, and stakeholders can gain valuable insights into job opportunities, compensation expectations, and company reputations.
-
-[View full project...](https://www.novypro.com/project/glassdoor-jobs)
 
 
 
