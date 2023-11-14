@@ -17,8 +17,6 @@ This project integrates OpenCV, YOLOv5, and EasyOCR to develop an efficient lice
 
 
 
-
-
 ## Utilizing Convolutional Neural Networks for Horses vs. Humans Classification
 
 [![OpenAI Logo](https://github.com/Satzil/horses_vs_humans/blob/main/images/horses_and_humas.png?raw=true)](https://satzil.github.io/horses_vs_humans/)
