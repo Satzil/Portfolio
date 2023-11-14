@@ -3,9 +3,7 @@
 
 
 # License Plate Detection using OpenCV, YOLOv5, and EasyOCR
-
 [![](https://user-images.githubusercontent.com/95362584/282869959-66102f05-ef40-44b0-be55-5e76ab112828.mp4)](https://user-images.githubusercontent.com/95362584/282869959-66102f05-ef40-44b0-be55-5e76ab112828.mp4)
-
 <video width="640" height="480" controls>
   <source src="https://user-images.githubusercontent.com/95362584/282869959-66102f05-ef40-44b0-be55-5e76ab112828.mp4" type="video/mp4">
 </video>
