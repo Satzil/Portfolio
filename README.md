@@ -15,6 +15,20 @@ This project integrates OpenCV, YOLOv5, and EasyOCR to develop an efficient lice
 [View full project...](https://github.com/Satzil/License-Plate-Detection-)
 
 
+# AI Body Language Detection with Mediapipe and OpenCV
+<video width="640" height="480" controls>
+  <source src="https://user-images.githubusercontent.com/95362584/283087155-c5ed4231-d736-4d86-b692-cb4cb5b725ef.mp4" type="video/mp4">
+</video>
+
+[![](https://user-images.githubusercontent.com/95362584/283087155-c5ed4231-d736-4d86-b692-cb4cb5b725ef.mp4)](https://user-images.githubusercontent.com/95362584/283087155-c5ed4231-d736-4d86-b692-cb4cb5b725ef.mp4)
+
+
+The "AI Body Language Detection" project employs Mediapipe, a custom classification model, and OpenCV to analyze and interpret human body language in real-time, focusing on classes such as "happy," "sad," and "victorious." By combining state-of-the-art pose detection with a specialized classification algorithm, the system provides insights into the emotional state and expressions of individuals. 
+
+[View full project...](https://github.com/Satzil/AI-Body-Language-Detection)
+
+
+
 
 
 ## Utilizing Convolutional Neural Networks for Horses vs. Humans Classification
