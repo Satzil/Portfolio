@@ -2,62 +2,39 @@
 # Projects
 
 
-# License Plate Detection using OpenCV, YOLOv5, and EasyOCR
-<video width="640" height="480" controls>
-  <source src="https://user-images.githubusercontent.com/95362584/282869959-66102f05-ef40-44b0-be55-5e76ab112828.mp4" type="video/mp4">
-</video>
+## Implement Transformers from Scratch
 
-[![](https://user-images.githubusercontent.com/95362584/282869959-66102f05-ef40-44b0-be55-5e76ab112828.mp4)](https://user-images.githubusercontent.com/95362584/282869959-66102f05-ef40-44b0-be55-5e76ab112828.mp4)
+[![OpenAI Logo](https://github.com/Satzil/Transformer_from_scratch/blob/master/transformer.png?raw=true)](https://github.com/Satzil/Transformer_from_scratch)
 
 
-This project integrates OpenCV, YOLOv5, and EasyOCR to develop an efficient license plate detection system. OpenCV provides foundational image processing, YOLOv5 enables real-time object detection, particularly focusing on license plates, and EasyOCR seamlessly extracts and recognizes license plate characters. 
+An implementation of the Transformer architecture from scratch using Python and PyTorch.
 
-[View full project...](https://github.com/Satzil/License-Plate-Detection-)
+This project contains a complete implementation of the Transformer architecture, one of the state-of-the-art models for various natural language processing tasks. The implementation is done from scratch, providing a detailed understanding of the inner workings of Transformers.
 
-
-# AI Body Language Detection with Mediapipe and OpenCV
-<video width="640" height="480" controls>
-  <source src="https://user-images.githubusercontent.com/95362584/283087155-c5ed4231-d736-4d86-b692-cb4cb5b725ef.mp4" type="video/mp4">
-</video>
-
-[![](https://user-images.githubusercontent.com/95362584/283087155-c5ed4231-d736-4d86-b692-cb4cb5b725ef.mp4)](https://user-images.githubusercontent.com/95362584/283087155-c5ed4231-d736-4d86-b692-cb4cb5b725ef.mp4)
+[View full project...](https://github.com/Satzil/Transformer_from_scratch)
 
 
-The "AI Body Language Detection" project employs Mediapipe, a custom classification model, and OpenCV to analyze and interpret human body language in real-time, focusing on classes such as "happy," "sad," and "victorious." By combining state-of-the-art pose detection with a specialized classification algorithm, the system provides insights into the emotional state and expressions of individuals. 
-
-[View full project...](https://github.com/Satzil/AI-Body-Language-Detection)
-
-
-
-
-
-## Utilizing Convolutional Neural Networks for Horses vs. Humans Classification
-
-[![OpenAI Logo](https://github.com/Satzil/horses_vs_humans/blob/main/images/horses_and_humas.png?raw=true)](https://satzil.github.io/horses_vs_humans/)
-
-
-This computer vision model uses CNN (Convolutional Neural Networks) and DNN (Deep Neural Networks) to recognize and classify horses and humans from the computer-generated images.
-
-[View full project...](https://satzil.github.io/horses_vs_humans/)
-
-
-# Sentiment analysis using Natural Language Processing
+# YOLO from Scratch
 
 [
-![OpenAI Logo](https://github.com/Satzil/IMDB_reviews/blob/main/images/vectors.png?raw=true)
-](https://satzil.github.io/IMDB_reviews/)
+![OpenAI Logo](https://github.com/Satzil/Yolo_from_scratch/raw/main/Architecture.png?raw=true)
+](https://github.com/Satzil/Yolo_from_scratch)
 
 
+The aim of this project is to provide a hands-on experience and understanding of how YOLO architecture works. By building the model from scratch and training it on the Pascal VOC dataset, users can gain insights into the inner workings of YOLO and its components, including the network architecture, loss calculation, and training process.
 
-Sentiment analysis, also known as opinion mining, is a Natural Language Processing (NLP) technique that involves the use of computational methods and algorithms to automatically determine and categorize the sentiment or emotional tone expressed in a piece of text, such as a sentence, paragraph, or document.
+[View full project...](https://github.com/Satzil/Yolo_from_scratch)
 
-[View full project...](https://satzil.github.io/IMDB_reviews/)
 
-# Text Sequence Generation using NLP
+# Seq2Seq German to English Translation using Transformers
 
-Text Sequence Generation using NLP is a model or system designed to generate coherent and contextually relevant text sequences. These generators utilize Natural Language Processing (NLP) techniques and often rely on deep learning models, such as recurrent neural networks (RNNs).
+[
+![OpenAI Logo](https://github.com/Satzil/German_to_English_translation/raw/main/Image.png?raw=true)
+](https://github.com/Satzil/German_to_English_translation)
 
-[View full project...](https://satzil.github.io/Text-sequence-generator/)
+This project contains an implementation of a sequence-to-sequence (Seq2Seq) model for German to English translation using Transformers in PyTorch. It aims to provide a practical example of how to build a translation model using state-of-the-art Transformer architecture.
+
+[View full project...](https://github.com/Satzil/German_to_English_translation)
 
 
 
