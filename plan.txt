@@ -1,0 +1,514 @@
+==============================================================================
+PORTFOLIO WEBSITE — UI/UX PLAN
+Satya Sai Vasamsetty | Senior Deep Learning Engineer
+==============================================================================
+
+GOAL
+----
+A recruiter landing on this page should — within 5 seconds — understand:
+  1. WHO  : Satya, Senior Deep Learning Engineer (Computer Vision + LLMs).
+  2. WHAT : Builds production CV/LLM systems for large enterprises.
+  3. SCALE: 8 enterprise clients, 1,300+ deployment locations, 1,000+ edge
+            devices, 99%+ accuracy on shipped products.
+  4. PROOF: Named Fortune-500-tier clients (Maruti Suzuki, Mahindra Logistics,
+            Ultratech, Trent / Star Bazaar, Dr Batras, Royaloak, Oerlikon).
+  5. NEXT : Resume download + email + LinkedIn — one click each.
+
+
+==============================================================================
+1. THE NUMBERS THAT MUST BE FRONT AND CENTER
+==============================================================================
+These are the headline metrics derived from Projects.pdf — recruiters love
+hard numbers, and these are unusually strong:
+
+   1,300+   Deployment locations (sum: 2+1+1200+3+3+11+2+86 = 1,308)
+       8   Enterprise clients shipped to
+   1,000+  Edge devices managed via central server (from resume)
+   99.7%+  Production accuracy on flagship models
+      90%  Manual work reduction (Oerlikon Balzers project)
+      50+  CV / LLM use-cases delivered end-to-end
+
+These six tiles will live in a "Stats Strip" directly under the hero.
+
+
+==============================================================================
+2. TECH STACK FOR THE SITE
+==============================================================================
+Stack: plain HTML + CSS + a small amount of vanilla JS. No framework,
+no build step, no node_modules. Why this is the right choice here:
+  - Zero build means the site is just files; opens in any browser instantly.
+  - No dependency-rot. The site you ship today still works in 5 years.
+  - Hosting is trivial — GitHub Pages, Netlify drop, or even a static S3
+    bucket all work in minutes.
+  - Faster cold-load than any React bundle, which is the actual point of
+    a recruiter-facing site.
+  - Lets Satya edit content directly in HTML later without remembering JSX.
+
+What we'll use:
+  - HTML5         : semantic tags (<header> <section> <article> <footer>).
+  - CSS3          : custom properties (CSS variables) for the palette,
+                    Flexbox + CSS Grid for layout, @media for responsive.
+                    No CSS framework — Tailwind isn't needed at this size.
+  - Vanilla JS    : ~80 lines total, no libraries:
+                      * IntersectionObserver -> reveal-on-scroll fade-up
+                      * IntersectionObserver -> count-up animation for stats
+                      * mobile nav toggle
+                      * smooth-scroll polyfill (optional; modern browsers
+                        already support scroll-behavior: smooth in CSS)
+  - Google Fonts  : <link> tag for Inter + JetBrains Mono. No npm.
+  - SVG icons     : inlined directly in HTML (email, LinkedIn, GitHub,
+                    download, arrow). Copy from lucide.dev or heroicons.com
+                    as needed. No icon library required.
+
+Project structure:
+  /portfolio
+    index.html              (the whole page, all sections)
+    style.css               (single stylesheet)
+    script.js               (~80 lines of vanilla JS)
+    resume.pdf              (copied from Deep_Learning_Resume.pdf)
+    /assets
+      /projects              (renamed, optimized project images)
+        trent_retail.webp
+        royaloak.webp
+        dr_batras.webp
+        ...etc
+      og-image.jpg          (1200x630 social-share preview)
+      favicon.svg
+
+That's it — 3 files at the root, an /assets folder, and the resume.
+
+CSS organization inside style.css (use comment banners, single file is fine):
+  /* 1. Reset + base       */
+  /* 2. Design tokens      */  (CSS variables for color, spacing, radius)
+  /* 3. Typography         */
+  /* 4. Layout primitives  */  (.container, .section, .grid)
+  /* 5. Navbar             */
+  /* 6. Hero               */
+  /* 7. Stats strip        */
+  /* 8. About              */
+  /* 9. Projects           */
+  /* 10. Skills            */
+  /* 11. Experience        */
+  /* 12. Education         */
+  /* 13. Contact + Footer  */
+  /* 14. Animations        */
+  /* 15. Responsive        */  (@media queries grouped at the bottom)
+
+Design tokens (top of style.css):
+  :root {
+    --bg:           #FAFAF7;
+    --surface:      #FFFFFF;
+    --border:       #E7E5E4;
+    --text:         #0C0A09;
+    --text-muted:   #57534E;
+    --accent:       #1E40AF;
+    --accent-soft:  #EFF6FF;
+    --success:      #047857;
+    --radius:       12px;
+    --radius-lg:    16px;
+    --shadow-sm:    0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md:    0 8px 24px rgba(12,10,9,0.08);
+    --max-w:        1200px;
+    --gap:          24px;
+  }
+
+
+==============================================================================
+3. DESIGN LANGUAGE (LIGHT MODE)
+==============================================================================
+Palette (Tailwind values):
+  Background base   : #FAFAF7 (warm off-white)  -> bg-stone-50
+  Surface / cards   : #FFFFFF                   -> bg-white
+  Border / dividers : #E7E5E4                   -> border-stone-200
+  Primary text      : #0C0A09 (near-black)      -> text-stone-950
+  Muted text        : #57534E                   -> text-stone-600
+  Accent (primary)  : #1E40AF (deep indigo-blue) — trust, technical
+  Accent (success)  : #047857 (emerald-700)     — for metrics / wins
+  Highlight tint    : #EFF6FF (indigo-50)       — soft chip backgrounds
+
+Why this palette: the warm off-white feels premium (not the harsh #FFFFFF
+that screams "default template"). Deep indigo + emerald reads as serious /
+engineering, not flashy. Two accents max — anything more looks unfocused.
+
+Typography:
+  Headings  : Inter (700/800), tight tracking, large display sizes.
+  Body      : Inter (400/500), 16-17px base, line-height 1.6.
+  Numbers   : "JetBrains Mono" or "Space Grotesk" for the stats strip
+              and project metrics — gives technical character.
+
+Spacing rhythm:
+  - 8px base unit.
+  - Section vertical padding: py-24 desktop / py-16 mobile.
+  - Max content width: 1200px (max-w-6xl), centered.
+
+Visual motifs:
+  - Generous whitespace; never crowd the cards.
+  - Subtle shadow-sm on cards, lift to shadow-lg on hover.
+  - 1px stone-200 borders rather than heavy shadows.
+  - Soft gradient washes only on the hero (top-right indigo blob, low opacity).
+  - Rounded-xl (12px) everywhere; rounded-2xl on hero/stat tiles.
+  - No skeuomorphism, no glassmorphism — flat, modern, confident.
+
+Motion:
+  - Fade-up + 8px translate on scroll (0.4s ease-out, once only).
+  - Number count-up on stats strip when scrolled into view.
+  - Card hover: 2px lift + image zoom 1.03x. That's it.
+  - NO autoplay carousels, NO parallax. Recruiters skim, motion gets in the way.
+
+
+==============================================================================
+4. PAGE STRUCTURE (TOP -> BOTTOM)
+==============================================================================
+
+------------------------------------------------------------------------------
+SECTION A — STICKY NAVBAR
+------------------------------------------------------------------------------
+  Left  : "Satya Sai" wordmark (small, monospace) or "SV" monogram badge.
+  Right : Projects · Experience · Skills · Contact · [Download Resume] (button)
+  Behavior:
+    - Transparent at top, solid white + bottom border on scroll.
+    - Mobile: hamburger -> slide-down sheet.
+    - Smooth-scroll to anchors.
+
+------------------------------------------------------------------------------
+SECTION B — HERO  (above the fold, the 5-second test)
+------------------------------------------------------------------------------
+Layout: two-column on desktop, stacked on mobile.
+
+  LEFT (60%):
+    Eyebrow chip   : "Senior Deep Learning Engineer · Pune, India"
+    H1             : "I ship computer-vision and LLM systems
+                      that run in 1,300+ real-world locations."
+    Subhead (2 lines):
+                     "5+ years building production CV pipelines for retail,
+                      manufacturing, logistics and healthcare. Currently at
+                      Tarsyer Insights — clients include Maruti Suzuki,
+                      Mahindra Logistics, Ultratech and Trent."
+    CTA buttons:
+       [Download Resume]  (primary, filled indigo)
+       [View Projects]    (secondary, outline, scrolls to #projects)
+       [Email me]         (ghost, opens mailto:satya.hyd11@gmail.com)
+    Tiny row underneath: LinkedIn · GitHub · Phone (icons only)
+
+  RIGHT (40%):
+    A clean "client logo wall" or a subtle decorative panel.
+    Option 1 (recommended): grayscale text logos of the 7 clients
+       (Maruti Suzuki · Mahindra Logistics · Ultratech · Trent · Dr Batras
+        · Royaloak · Oerlikon Balzers) in a 3-column grid, low contrast.
+       Honest, trustworthy, no fake imagery.
+    Option 2: a single hero image (one of the project_images, with a
+       light gradient overlay) — only if Option 1 feels too text-heavy.
+
+Why this hero works: the H1 leads with a SCALE NUMBER (1,300+ locations).
+Most resumes hide this in a bullet on page 2. Putting it at H1 size is the
+single biggest credibility lever on the page.
+
+------------------------------------------------------------------------------
+SECTION C — STATS STRIP  (immediately under the hero, full-bleed)
+------------------------------------------------------------------------------
+A single horizontal row of 6 tiles on a soft indigo-tinted band:
+
+  [ 1,300+ ]   [   8    ]   [ 1,000+ ]   [ 99.7%  ]   [  90%   ]   [  50+  ]
+  Locations    Enterprise   Edge         Production   Manual       CV / LLM
+  Deployed     Clients      Devices      Accuracy     Work Cut     Use-cases
+                            Managed                                Shipped
+
+  - Numbers in monospace, accent indigo.
+  - Labels small, uppercase, tracking-wide, stone-600.
+  - Animated count-up on first scroll into view (CountUp library).
+  - Mobile: 2 columns x 3 rows.
+
+------------------------------------------------------------------------------
+SECTION D — ABOUT  (one short paragraph, 60-80 words max)
+------------------------------------------------------------------------------
+A single tight paragraph — recruiters won't read more.
+
+  "I build computer-vision and LLM systems that move from prototype to
+   thousands of edge devices in production. At Tarsyer Insights I lead
+   delivery for clients in retail, manufacturing, logistics and healthcare —
+   from understanding the business problem, through model selection and
+   data pipelines, to deploying and version-managing software across a
+   1,000-device fleet. I work hands-on across YOLO detection, person
+   re-identification, multimodal LLMs (Qwen, Gemini), and the boring-but-
+   critical infrastructure that keeps it all running."
+
+Right side: a small "Quick Facts" card —
+   Role        : Senior Deep Learning Engineer
+   Company     : Tarsyer Insights LLP, Pune
+   Since       : January 2024
+   Education   : B.Tech CS, JNTU (2019–2023)
+   Open to     : Senior CV / ML Engineer roles, remote or Pune/Hyderabad
+
+------------------------------------------------------------------------------
+SECTION E — PROJECTS  (THE CORE OF THE PAGE)
+------------------------------------------------------------------------------
+This is where the page must really sell. 8 project cards, in a 2-column grid
+on desktop, 1-column on mobile. Order by impact (deployments × brand
+recognition), not by chronology.
+
+Recommended display order:
+  1. Retail Store Production Monitoring   — Trent Limited       (1,200 sites)
+  2. Customer Analytics System            — Royaloak             (86 sites)
+  3. Patient & Operations Monitoring      — Dr Batras            (11 sites)
+  4. Warehouse & Dock Monitoring System   — Mahindra Logistics   (3 sites)
+  5. Star Bazaar Production Monitoring    — Trent Limited        (3 sites)
+  6. Tool Counting & Measurement          — Oerlikon Balzers     (2 sites)
+  7. Warehouse Production Monitoring      — Ultratech Cement     (2 sites)
+  8. Activity Assessment System           — Maruti Suzuki        (1 site)
+
+  Note: Maruti Suzuki goes last only because deployment count is 1, but the
+  CLIENT BRAND is huge. Consider pinning it #4 if brand-name weight matters
+  more than deployment count for the recruiters Satya is targeting.
+
+----- PROJECT CARD ANATOMY ----------------------------------------------------
+Each card is a self-contained mini case study:
+
+  +--------------------------------------------------------------+
+  |  [ project image — 16:9, rounded-top, 320px tall on desktop ] |
+  |                                                              |
+  |  CLIENT CHIP (small, colored)   |   USE-CASE TAG             |
+  |  e.g.  "Trent Limited"              "Retail · CV · LLM"      |
+  |                                                              |
+  |  Project Title (H3, bold, 22px)                              |
+  |  Retail Store Production Monitoring                          |
+  |                                                              |
+  |  One-line description (stone-600, 15px):                     |
+  |  "Real-time CV monitoring across 1,200 stores — footfall,    |
+  |   safety, staff tracking, and operational alerts."           |
+  |                                                              |
+  |  +---- METRICS ROW (3 chips) -----------+                    |
+  |  | 1,200 sites | 10 use-cases | LLM+CV |                     |
+  |  +----------------------------------------+                  |
+  |                                                              |
+  |  Tech stack chips (small pills, stone-100 bg):               |
+  |  [YOLO] [ResNet ReID] [Qwen VLM] [Facial Recognition] ...    |
+  |                                                              |
+  |  ▸ View use-cases  (expandable accordion / "+ N more")       |
+  +--------------------------------------------------------------+
+
+Expand-on-click: the use-case list (e.g. all 10 retail use-cases) is hidden
+by default and revealed via a chevron accordion. This keeps the grid scannable
+but lets a curious recruiter dig in without leaving the page.
+
+Image mapping (project_images/ -> projects):
+  Note: all 9 source images appear identical in size. Before launch, Satya
+  should rename them so each card gets a contextually correct image, e.g.:
+    1.jpg -> trent_retail.jpg
+    2.jpg -> royaloak.jpg
+    3.jpg -> dr_batras.jpg
+    4.jpg -> mahindra.jpg
+    5.jpg -> star_bazaar.jpg
+    6.jpg -> oerlikon_tool.jpg
+    7.jpg -> ultratech.jpg
+    8.jpg -> maruti.jpg
+    9.jpg -> hero_or_about.jpg
+  TODO before launch: confirm each image actually depicts the right project.
+
+------------------------------------------------------------------------------
+SECTION F — SKILLS / TECH STACK
+------------------------------------------------------------------------------
+Grouped, scannable, NOT a long flat list of pills. 4 columns on desktop:
+
+  ML / CV                Languages           Infra & Tools         Concepts
+  -------                ----------          --------------        --------
+  PyTorch                Python              Docker                LLMs / Agentic AI
+  OpenCV                 C / C++             AWS                   Object Detection
+  YOLO (v5/v8/World)     SQL                 Linux                 Re-identification
+  Multimodal LLMs        JavaScript          Git                   Prompt Engineering
+  (Qwen, Gemini)         Bash                Nginx                 REST APIs
+  Albumentations         React               Raspberry Pi          Edge Deployment
+  ResNet embeddings      Tailwind CSS        MySQL / MongoDB       Networking
+  ONNX / NCNN            Node.js             Redis                 OS fundamentals
+
+Each item: small text, no pill chrome — just clean lists under a column header.
+This reads as senior / no-fluff. Pills everywhere look junior.
+
+------------------------------------------------------------------------------
+SECTION G — EXPERIENCE  (compact timeline)
+------------------------------------------------------------------------------
+Just one role today, but treat it well:
+
+  Jan 2024 — Present    Senior Deep Learning Engineer
+                        Tarsyer Insights LLP · Pune, India
+                        - Lead delivery on 8 enterprise CV/LLM projects.
+                        - Manage 1,000+ edge device fleet with zero-data-loss
+                          pipelines on MySQL.
+                        - Designed git+Python software-versioning architecture
+                          for fleet-wide deployment.
+                        - Built rate limiters & load balancers for self-hosted
+                          Qwen LLM serving.
+
+A vertical line on the left, dot at the date, content to the right. Leaves
+visual room for future roles to be added later.
+
+------------------------------------------------------------------------------
+SECTION H — EDUCATION + ACHIEVEMENTS  (small, side by side)
+------------------------------------------------------------------------------
+Two compact cards:
+
+  EDUCATION                          ACHIEVEMENTS
+  B.Tech, Computer Science           - Mentored Python & web-dev at college fest
+  JNTU Sangareddy, Telangana         - Ran Git/GitHub workshop
+  Aug 2019 — July 2023               - "Code Addicts" — hosted contest on
+                                       HackerRank for YUGA2K22
+
+------------------------------------------------------------------------------
+SECTION I — CONTACT  (don't overthink it)
+------------------------------------------------------------------------------
+A single centered block:
+
+  H2: "Let's build something."
+  Sub: "Open to senior CV / ML engineering roles."
+
+  [ satya.hyd11@gmail.com ]   <- big, copy-on-click
+  [ +91 93907 21741 ]
+  [ LinkedIn ]   [ GitHub ]   [ Download Resume (PDF) ]
+
+NO contact form. Recruiters just want the email — a form adds friction and
+needs a backend. A mailto: link is enough.
+
+------------------------------------------------------------------------------
+SECTION J — FOOTER
+------------------------------------------------------------------------------
+Single line, stone-500, centered:
+  "© 2026 Satya Sai Vasamsetty · Built with React + Tailwind"
+
+
+==============================================================================
+5. THE 5-SECOND RECRUITER TEST — what they should see without scrolling
+==============================================================================
+On a 1440x900 laptop (most common recruiter screen), the viewport above the
+fold MUST contain:
+  - Name + role + location.
+  - The "1,300+ locations" hook in the H1.
+  - At least 3 client names (Maruti / Mahindra / Trent / Ultratech).
+  - Download Resume button.
+  - The first row of the Stats Strip just peeking in at the bottom — this
+    creates a "scroll to see more numbers" pull.
+
+If any of these are missing on a typical laptop, shrink hero padding until
+they fit. This is non-negotiable.
+
+
+==============================================================================
+6. RESPONSIVENESS
+==============================================================================
+Breakpoints (Tailwind defaults):
+   sm  640px  - stack hero, 1-col project grid, hamburger nav.
+   md  768px  - 2-col project grid begins.
+   lg 1024px  - hero goes 2-col, 4-col skills grid.
+  xl 1280px+  - max-w-6xl content, generous side padding.
+
+Test on: iPhone 12/13 (390px), iPad (768px), 1440px laptop, 1920px desktop.
+
+
+==============================================================================
+7. ACCESSIBILITY + SEO BASICS
+==============================================================================
+- All images: meaningful alt text (project + client name).
+- Heading hierarchy strict: one H1 (hero), H2 per section, H3 on cards.
+- Color contrast >= 4.5:1 for body text against bg-stone-50 (verified by
+  the chosen palette).
+- prefers-reduced-motion: disable all framer-motion entrances.
+- <title>: "Satya Sai Vasamsetty — Senior Deep Learning Engineer"
+- <meta name="description">: the hero subhead, ~155 chars.
+- Open Graph image: a 1200x630 export of the hero (helps when the link is
+  shared on LinkedIn / WhatsApp).
+- Resume PDF served at /resume.pdf with a stable URL.
+
+
+==============================================================================
+8. PERFORMANCE
+==============================================================================
+- All project images: convert JPG -> WebP, resize to max 1200px wide, target
+  <150 KB each (currently ~1.1 MB each — a 90% size cut is easy).
+- Lazy-load all project images below the hero.
+- Font loading: Inter via next-gen <link rel="preload"> for the two weights
+  used; everything else swap-fallback to system sans.
+- Lighthouse target: 95+ on Performance, 100 on Accessibility & SEO.
+
+
+==============================================================================
+9. DEPLOYMENT
+==============================================================================
+Static site, so any of these work in minutes — pick the most familiar:
+
+  Option A — GitHub Pages (recommended, free, simplest):
+    1. git init && git add . && git commit -m "portfolio v1"
+    2. Create a public repo, e.g. github.com/<you>/portfolio
+    3. git push -u origin main
+    4. Repo Settings -> Pages -> Source: main branch / root
+    5. Live at https://<you>.github.io/portfolio in ~30 seconds.
+
+  Option B — Netlify drop (no git required):
+    1. Drag the /portfolio folder onto app.netlify.com/drop
+    2. Get a *.netlify.app URL instantly. Connect a custom domain later.
+
+  Option C — Vercel:
+    1. Connect GitHub repo at vercel.com.
+    2. Framework preset: "Other" (no build command, output directory ".").
+
+Local preview while building (no node needed):
+    python3 -m http.server 8000      # then open http://localhost:8000
+  Or just double-click index.html — it opens in the browser as a file://
+  URL and works fine for development.
+
+Domain idea (optional, ~$10/year):
+  satyasai.dev  /  satyavasamsetty.com  /  satya.engineer
+
+
+==============================================================================
+10. BUILD ORDER (so it's never half-broken)
+==============================================================================
+Day 1:
+  [ ] Create index.html, style.css, script.js skeletons
+  [ ] Drop in design tokens (CSS variables) + Google Fonts <link>
+  [ ] Image optimization pass (jpg -> webp, resize, rename per project)
+  [ ] Navbar + Hero + Stats Strip markup + styles
+  [ ] Vanilla JS count-up via IntersectionObserver
+
+Day 2:
+  [ ] Project card markup (one card, perfect it, then duplicate x8)
+  [ ] Projects grid + use-case accordion (use <details>/<summary> — no JS!)
+  [ ] Skills + Experience + Education sections
+
+Day 3:
+  [ ] Contact + Footer
+  [ ] Responsive pass (@media queries, mobile + tablet)
+  [ ] Animation pass (CSS transitions + IntersectionObserver fade-up,
+      respect prefers-reduced-motion)
+  [ ] Lighthouse audit + image/perf cleanup
+  [ ] Deploy to GitHub Pages (or Netlify drop), optionally attach domain
+  [ ] Send to 2-3 friends for a 5-second-test sanity check before sharing
+
+Tip: the use-case accordion under each project card can be a native
+<details><summary> element — zero JavaScript, fully accessible, and styled
+with CSS. Use this everywhere a disclosure pattern is needed.
+
+
+==============================================================================
+11. CONTENT POLISH — NOT TO FORGET
+==============================================================================
+- Verify each project image actually shows that project (rename file to
+  match before importing).
+- Decide whether to display phone number publicly or only on resume PDF.
+- Tighten the hero subhead to <= 25 words once written into JSX.
+- Add a tiny "Last updated: <date>" in the footer — signals the page is alive.
+- Optional: a single client testimonial pulled from a LinkedIn recommendation,
+  placed between Projects and Skills. One quote, attributed, no carousel.
+
+
+==============================================================================
+WHAT TO BUILD FIRST IF TIME IS TIGHT
+==============================================================================
+If only one day available, ship in this exact order and stop wherever the
+day ends — every step still leaves a presentable site:
+
+  1. Hero  +  Stats Strip  +  Resume download button.
+  2. Projects grid (cards collapsed, no accordion yet).
+  3. Contact (just email + LinkedIn).
+  4. Skills.
+  5. Everything else.
+
+Steps 1-3 alone already pass the recruiter test.
+==============================================================================

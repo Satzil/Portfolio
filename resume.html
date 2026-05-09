@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satya Sai Vasamsetty — Resume</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    @page { size: A4; margin: 10.5mm 13mm; }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 9pt;
+      line-height: 1.32;
+      color: #111;
+      background: #fff;
+    }
+
+    /* ── Header ── */
+    .name {
+      text-align: center;
+      font-size: 17pt;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+    .contact {
+      text-align: center;
+      font-size: 8.5pt;
+      color: #333;
+    }
+    .contact a { color: #111; text-decoration: none; }
+
+    /* ── Section headings ── */
+    .section-title {
+      font-size: 8.5pt;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: bold;
+      border-bottom: 1px solid #111;
+      margin-top: 7px;
+      margin-bottom: 3px;
+      padding-bottom: 1px;
+    }
+
+    /* ── Skills ── */
+    .skills-table { width: 100%; border-collapse: collapse; }
+    .skills-table td {
+      padding: 0.5px 0;
+      vertical-align: top;
+      font-size: 8.5pt;
+    }
+    .skills-table td:first-child {
+      font-weight: bold;
+      white-space: nowrap;
+      padding-right: 6px;
+      width: 115px;
+    }
+
+    /* ── Experience ── */
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .exp-title { font-weight: bold; font-size: 9pt; }
+    .exp-date { font-size: 8.5pt; }
+    .exp-company {
+      display: flex;
+      justify-content: space-between;
+      font-style: italic;
+      font-size: 8.5pt;
+      margin-bottom: 2px;
+    }
+    ul.bullets {
+      list-style-type: disc;
+      padding-left: 12px;
+      margin-top: 0;
+    }
+    ul.bullets li {
+      margin-bottom: 2px;
+      font-size: 8.5pt;
+    }
+
+    /* ── Projects ── */
+    .project-row {
+      margin-bottom: 4px;
+    }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .project-name { font-weight: bold; font-size: 9pt; }
+    .project-client {
+      font-size: 8.5pt;
+      color: #444;
+      font-style: italic;
+    }
+    .project-tech {
+      font-size: 8pt;
+      font-style: italic;
+      color: #333;
+      margin-bottom: 0.5px;
+    }
+
+    /* ── Education ── */
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+    }
+    .edu-title { font-weight: bold; }
+    .edu-date { font-size: 9pt; }
+    .edu-sub {
+      display: flex;
+      justify-content: space-between;
+      font-style: italic;
+      font-size: 9.5pt;
+    }
+
+    /* ── Achievements ── */
+    ul.achieve {
+      list-style-type: disc;
+      padding-left: 12px;
+    }
+    ul.achieve li {
+      font-size: 8.5pt;
+      margin-bottom: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="name">Satya Sai Vasamsetty</div>
+  <div class="contact">
+    +91 93907 21741 &nbsp;|&nbsp;
+    <a href="mailto:satya.hyd11@gmail.com">satya.hyd11@gmail.com</a> &nbsp;|&nbsp;
+    <a href="https://linkedin.com/in/satya-sai-vasamsetty" target="_blank">LinkedIn</a> &nbsp;|&nbsp;
+    Pune, India
+  </div>
+
+  <!-- ── SKILLS ── -->
+  <div class="section-title">Technical Skills</div>
+  <table class="skills-table">
+    <tr>
+      <td>Languages</td>
+      <td>Python, C/C++, SQL, JavaScript, Bash Scripting</td>
+    </tr>
+    <tr>
+      <td>ML / CV</td>
+      <td>PyTorch, OpenCV, YOLO (v5/v8/World), Person Re-ID, Facial Recognition, ONNX, NCNN, Albumentations</td>
+    </tr>
+    <tr>
+      <td>LLMs</td>
+      <td>Qwen VLM, Gemini Multimodal, Prompt Engineering, Agentic AI, Rate Limiting, Load Balancing</td>
+    </tr>
+    <tr>
+      <td>Infra &amp; Tools</td>
+      <td>Docker, AWS, Linux, Git, Nginx, Raspberry Pi, Node.js, React</td>
+    </tr>
+    <tr>
+      <td>Databases</td>
+      <td>MySQL, MongoDB, Redis</td>
+    </tr>
+    <tr>
+      <td>Concepts</td>
+      <td>Edge Deployment, Object Detection &amp; Tracking, REST APIs, Networking, OS Fundamentals</td>
+    </tr>
+  </table>
+
+  <!-- ── EXPERIENCE ── -->
+  <div class="section-title">Experience</div>
+  <div>
+    <div class="exp-header">
+      <span class="exp-title">Senior Deep Learning Engineer</span>
+      <span class="exp-date">January 2024 – Present</span>
+    </div>
+    <div class="exp-company">
+      <span>Tarsyer Insights LLP</span>
+      <span>Pune, Maharashtra, India</span>
+    </div>
+    <ul class="bullets">
+      <li>Delivered 9 production CV/LLM systems across 1,308+ locations for clients: Trent, Royaloak, Dr Batras, Mahindra Logistics, Ultratech Cement, Oerlikon Balzers, Maruti Suzuki, and ArcelorMittal.</li>
+      <li>Managed 1,000+ edge devices via a central server with zero-data-loss MySQL pipelines; designed a Git + Python architecture for fleet-wide software versioning and deployment.</li>
+      <li>Built and self-hosted open-source LLM inference (Qwen) with custom rate limiters and load balancers across multiple servers.</li>
+      <li>Led full project lifecycle — client requirement gathering, model selection, data pipeline design, edge deployment, and production monitoring.</li>
+    </ul>
+  </div>
+
+  <!-- ── PROJECTS ── -->
+  <div class="section-title">Projects</div>
+
+  <div class="project-row">
+    <div class="project-header">
+      <span class="project-name">Retail Store Production Monitoring</span>
+      <span class="project-client">Trent Limited (Westside)</span>
+    </div>
+    <div class="project-tech">YOLO · Person Re-ID · Qwen VLM · Gemini · Facial Recognition · ResNet</div>
+    <ul class="bullets">
+      <li>Deployed across <strong>1,200 stores</strong> on 1,000+ edge devices; 10 use-cases — footfall (M/F/child), dwell time, fire-exit blockage, crowd alerts, store manager tracking, intrusion detection, and back-office cleanliness via multimodal LLM.</li>
+    </ul>
+  </div>
+
+  <div class="project-row">
+    <div class="project-header">
+      <span class="project-name">Customer Analytics System</span>
+      <span class="project-client">Royaloak Furniture</span>
+    </div>
+    <div class="project-tech">MobileNet · Object Tracking · Person Re-ID · ResNet · Cosine Distance</div>
+    <ul class="bullets">
+      <li>Accurate group and unique customer counting across <strong>86 stores</strong>; re-identification eliminates duplicate counts across frames for reliable footfall KPIs.</li>
+    </ul>
+  </div>
+
+  <div class="project-row">
+    <div class="project-header">
+      <span class="project-name">Patient &amp; Operations Monitoring</span>
+      <span class="project-client">Dr Batras</span>
+    </div>
+    <div class="project-tech">YOLO · NCNN · Person Re-ID · Gemini · Audio Analysis</div>
+    <ul class="bullets">
+      <li>10 use-cases across <strong>11 clinics</strong> — patient flow, dwell time, doctor-patient time, staff uniform compliance, greeting check, audio interaction analysis (Gemini multimodal), and real-time device health alerts.</li>
+    </ul>
+  </div>
+
+  <div class="project-row">
+    <div class="project-header">
+      <span class="project-name">Warehouse &amp; Dock Monitoring</span>
+      <span class="project-client">Mahindra Logistics</span>
+    </div>
+    <div class="project-tech">YOLO · MobileNet · Gemini · YOLO-World · CLIP · Clustering</div>
+    <ul class="bullets">
+      <li>7 use-cases across <strong>3 hubs</strong> (Pune, Jaipur, Hyderabad) — dock activity, truck number-plate detection, loitering alerts, pallet counting, mobile-phone usage detection, and suspicious-activity monitoring.</li>
+    </ul>
+  </div>
+
+  <div class="project-row">
+    <div class="project-header">
+      <span class="project-name">Star Bazaar Store Monitoring</span>
+      <span class="project-client">Trent Limited</span>
+    </div>
+    <div class="project-tech">YOLO · Binary Classifier · ONNX · ResNet Re-ID · Facial Recognition</div>
+    <ul class="bullets">
+      <li>6 use-cases across <strong>3 sites</strong> — footfall, shelf empty-box detection for fruits/vegetables/staples (binary classifier, ONNX), fire-exit monitoring, and cash till activity.</li>
+    </ul>
+  </div>
+
+  <div class="project-row">
+    <div class="project-header">
+      <span class="project-name">Tool Counting &amp; Measurement</span>
+      <span class="project-client">Oerlikon Balzers</span>
+    </div>
+    <div class="project-tech">YOLO · Albumentations · PCA · Linear Regression · Raspberry Pi</div>
+    <ul class="bullets">
+      <li>Counts 10–600 tools on a metallic tray at <strong>99.98% accuracy</strong>; measures diameter (±0.5 mm) and length (±1 mm) in &lt;1 s on Raspberry Pi. Reduced manual work by <strong>90%</strong>. Trained on 249 images with custom augmentation.</li>
+    </ul>
+  </div>
+
+  <div class="project-row">
+    <div class="project-header">
+      <span class="project-name">Warehouse Production Monitoring</span>
+      <span class="project-client">Ultratech Cement</span>
+    </div>
+    <div class="project-tech">MobileNet · Object Tracking · Object Detection</div>
+    <ul class="bullets">
+      <li>Automated cement bag counting (entry &amp; exit) across <strong>2 production sites</strong>, eliminating manual tracking and improving inventory accuracy.</li>
+    </ul>
+  </div>
+
+  <div class="project-row">
+    <div class="project-header">
+      <span class="project-name">Activity Assessment System</span>
+      <span class="project-client">Maruti Suzuki</span>
+    </div>
+    <div class="project-tech">Object Detection · Color Segmentation · Motion Detection · Contour Detection · Sequence Logic</div>
+    <ul class="bullets">
+      <li>CV system monitoring 10 assembly activities at <strong>99.7% accuracy</strong> — tracks task duration, idle time, and step transitions for trainer performance evaluation.</li>
+    </ul>
+  </div>
+
+  <div class="project-row">
+    <div class="project-header">
+      <span class="project-name">Crane Hook Safety Detection</span>
+      <span class="project-client">ArcelorMittal</span>
+    </div>
+    <div class="project-tech">YOLOX Nano · ONNX Runtime · ZeroMQ · Raspberry Pi · Moxa PLC · RTSP</div>
+    <ul class="bullets">
+      <li>Safety-critical real-time CV system classifying crane ladle hook states (hooked / mishooked / active) and triggering PLC signals (safe / unsafe / warning) to prevent accidents during molten metal transfers; multi-camera consensus with gated 10-second hold before any signal fires.</li>
+    </ul>
+  </div>
+
+  <!-- ── EDUCATION ── -->
+  <div class="section-title">Education</div>
+  <div class="edu-header">
+    <span class="edu-title">Jawaharlal Nehru Technological University</span>
+    <span class="edu-date">Aug 2019 – July 2023</span>
+  </div>
+  <div class="edu-sub">
+    <span>Bachelor of Technology in Computer Science</span>
+    <span>Sangareddy, Telangana, India</span>
+  </div>
+
+  <!-- ── ACHIEVEMENTS ── -->
+  <div class="section-title">Activities &amp; Achievements</div>
+  <ul class="achieve">
+    <li>Volunteered as Python and Web Development mentor at College Technical Fest.</li>
+    <li>Conducted an interactive Git &amp; GitHub workshop for students at College Technical Fest.</li>
+    <li>CODE ADDICTS — created and hosted a programming contest at YUGA2K22 on HackerRank.</li>
+  </ul>
+
+</body>
+</html>
