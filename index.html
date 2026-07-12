@@ -27,6 +27,7 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="Deep_Learning_Resume.pdf" download="Satya_Sai_Vasamsetty_Resume.pdf" class="nav-resume-btn">Download Resume</a></li>
+        <li><a href="CV.pdf" download="Satya_Sai_Vasamsetty_CV.pdf" class="nav-resume-btn">Download CV</a></li>
       </ul>
     </div>
   </nav>
@@ -51,6 +52,10 @@
             <a href="Deep_Learning_Resume.pdf" download="Satya_Sai_Vasamsetty_Resume.pdf" class="btn btn-primary">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Download Resume
+            </a>
+            <a href="CV.pdf" download="Satya_Sai_Vasamsetty_CV.pdf" class="btn btn-outline">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download CV
             </a>
             <a href="#projects" class="btn btn-outline">View Projects</a>
             <a href="mailto:satya.hyd11@gmail.com" class="btn btn-ghost">
@@ -180,25 +185,25 @@
                 <span class="client-chip chip-industrial">ArcelorMittal</span>
                 <div class="project-tags"><span class="tag">Steel</span><span class="tag">Safety</span></div>
               </div>
-              <h3 class="project-title">Crane Hook Safety Detection</h3>
-              <p class="project-desc">Real-time CV system monitoring crane ladle hook engagement at ArcelorMittal's steel plant — classifies hook state and triggers PLC safety signals to prevent crane accidents during molten metal transfers.</p>
+              <h3 class="project-title">Safe Ladle Hooking System</h3>
+              <p class="project-desc">Industrial safety system that checks whether a crane hook is properly engaged with a ladle before it lifts molten steel. Safe, warning, and unsafe signals are pushed to the crane operator in real time via Moxa devices to prevent accidents.</p>
               <div class="project-metrics">
-                <span class="metric"><strong>2</strong> Cranes Monitored</span>
-                <span class="metric"><strong>3</strong> Safety States</span>
-                <span class="metric metric-success"><strong>Real-Time</strong> PLC Output</span>
+                <span class="metric"><strong>17</strong> Ladle Stations</span>
+                <span class="metric"><strong>21</strong> Cameras + Pis</span>
+                <span class="metric metric-success"><strong>98%</strong> Efficiency, <strong>100%</strong> Accuracy</span>
               </div>
               <div class="tech-tags">
-                <span>YOLOX Nano</span><span>ONNX Runtime</span><span>ZeroMQ</span><span>Raspberry Pi</span><span>Moxa PLC</span><span>RTSP</span>
+                <span>YOLOX</span><span>ONNX Runtime</span><span>Raspberry Pi</span><span>Moxa</span><span>RTSP</span>
               </div>
               <div class="use-cases">
-                <p class="use-cases-label">Use-Cases</p>
+                <p class="use-cases-label">How It Works</p>
                 <ol>
-                  <li>Hook state classification — hooked / mishooked / active / inactive (YOLOX Nano + geometric logic)</li>
-                  <li>Safe signal output to crane PLC when hook fully engaged with ladle flange (≥81% depth)</li>
-                  <li>Unsafe / warning signals for mishooked or partially engaged hook states</li>
-                  <li>Multi-camera consensus — ≥2 devices must agree before any PLC signal fires</li>
-                  <li>Scenario detection — pick-up vs. place-down with gated 10-second hold before signal</li>
-                  <li>Operator acknowledgment flow to suppress signals after manual review</li>
+                  <li>Operator moves the crane to hook the ladle</li>
+                  <li>Moxa devices trigger a safe / unsafe / warning signal based on hook state</li>
+                  <li>Safe signal is confirmed once the hook is properly engaged</li>
+                  <li>Operator presses the acknowledge button and lifts the ladle</li>
+                  <li>Signals turn off once the ladle leaves the station</li>
+                  <li>Deployed across 17 ladle stations with 21 cameras, 21 Raspberry Pis, and 10 Moxa devices</li>
                 </ol>
               </div>
             </div>
@@ -538,6 +543,10 @@
             <a href="Deep_Learning_Resume.pdf" download="Satya_Sai_Vasamsetty_Resume.pdf" class="social-btn">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Resume PDF
+            </a>
+            <a href="CV.pdf" download="Satya_Sai_Vasamsetty_CV.pdf" class="social-btn">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              CV PDF
             </a>
           </div>
           <p class="edu-note">B.Tech Computer Science &nbsp;·&nbsp; JNTU Sangareddy &nbsp;·&nbsp; 2019–2023</p>
